@@ -160,13 +160,14 @@ header {
 
 .btn > button {
     border: 0px;
-    width: 125px;
-    height: 45px;
-    border-radius: 20px;
+    width: 140px;
+    height: 40px;
+    border-radius: 990px;
     background: #90e0ef;
     border: 2px solid #48cae4;
     margin-top: 2px;
     color: var(--text-color);
+    font-size: 16px;
 }
 
 /* https://coolors.co/palettes/popular/turquoise */
@@ -178,8 +179,9 @@ main {
     grid-template: min-content / repeat(auto-fit, 250px);
     gap: 20px;
     justify-content: center;
-    grid-auto-rows: 200px;
-    font-size: 1.3em;
+    grid-auto-rows: min-content;
+    font-size: 1.25em;
+    margin: 10px 0px;
 }
 
 main > div {
@@ -188,7 +190,7 @@ main > div {
     padding: 10px;
     display: grid;
     grid-template: min-content 20px / 1fr min-content;
-    gap: 10px;
+    column-gap: 10px;
 }
 
 main > div > button {
@@ -203,10 +205,9 @@ main > div > button {
     color: var(--text-color);
 }
 
-.borders {
-    padding: 10px 0px;
-    border-top: 0.5px solid #023e8a;
-    border-bottom: 0.5px solid #023e8a;
+.gap {
+    height: 1px;
+    background: #023e8a;
 }
 
 .trash {
@@ -216,8 +217,21 @@ main > div > button {
     justify-content: center;
 }
 
+.trash > img {
+    transition: transform 0.2s;
+}
+
+.trash > img:hover {
+    transform: scale(1.1);
+}
+
 .status {
     grid-column: span 2;
+    transition: transform 0.2s;
+}
+
+.status:hover {
+    transform: scale(1.05);
 }
 
 .book-info {

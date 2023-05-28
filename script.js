@@ -6,13 +6,22 @@
 
 // function displayBooks() {}
 
-const stat = document.querySelector('.status');
-const statImg = document.querySelector('.status > img');
-stat.addEventListener('click', () => {
-    const currentImg = statImg.getAttribute('src');
-    if (currentImg === 'svg-icons/uncheck.svg') {
-        statImg.setAttribute('src', 'svg-icons/check.svg');
-    } else {
-        statImg.setAttribute('src', 'svg-icons/uncheck.svg');
-    }
-});
+// Toggle status button
+const statImgs = document.querySelectorAll('.status > img');
+statImgs.forEach((statImg) =>
+    statImg.addEventListener('click', () => {
+        const currentImg = statImg.getAttribute('src');
+        if (currentImg === 'svg-icons/uncheck.svg') {
+            statImg.setAttribute('src', 'svg-icons/check.svg');
+        } else {
+            statImg.setAttribute('src', 'svg-icons/uncheck.svg');
+        }
+    })
+);
+
+const Alltrash = document.querySelectorAll('.trash');
+Alltrash.forEach((trash) =>
+    trash.addEventListener('click', () => {
+        trash.parentNode.remove();
+    })
+);

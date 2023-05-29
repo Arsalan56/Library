@@ -241,3 +241,19 @@ main > div > button {
     flex-grow: 1;
     justify-content: space-around;
 }
+
+/* Form Styling */
+
+form {
+    background: #90e0ef;
+    border: 3px solid #00b4d8;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    margin: auto;
+    height: 300px;
+    width: 500px;
+    visibility: hidden;
+}

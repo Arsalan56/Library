@@ -53,6 +53,7 @@
                         id="name"
                         title="Please enter the book name"
                         autocomplete="off"
+                        minlength="1"
                     />
                 </label>
                 <label for="author">
@@ -61,7 +62,8 @@
                         type="text"
                         id="author"
                         autocomplete="off"
-                        title="Please enter the author of the book"
+                        title="Please enter the name of the author"
+                        minlength="1"
                     />
                 </label>
                 <label for="pgs">
@@ -93,6 +95,7 @@
                         />Unread
                     </label>
                 </div>
+                <button type="button" class="submit">Add Book</button>
             </div>
             <button type="button"><img src="svg-icons/close.svg" /></button>
         </form>

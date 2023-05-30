@@ -33,6 +33,11 @@ body.addEventListener('click', () => {
 });
 
 form.addEventListener('click', (e) => e.stopPropagation());
+
+const closeForm = document.querySelector('form > button');
+closeForm.addEventListener('click', () => {
+    form.style.visibility = 'hidden';
+});
 // const myLibrary = [];
 
 // function Book(name, author, pages, status) {

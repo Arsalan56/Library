@@ -44,6 +44,57 @@
         </main>
 
         <div class="btn"><button>Add New Book</button></div>
-        <form>sup</form>
+        <form>
+            <div>
+                <label for="name">
+                    Name:
+                    <input
+                        type="text"
+                        id="name"
+                        title="Please enter the book name"
+                        autocomplete="off"
+                    />
+                </label>
+                <label for="author">
+                    Author:
+                    <input
+                        type="text"
+                        id="author"
+                        autocomplete="off"
+                        title="Please enter the author of the book"
+                    />
+                </label>
+                <label for="pgs">
+                    Total Pages:
+                    <input
+                        type="number"
+                        id="pgs"
+                        min="1"
+                        title="Please enter the amount of pages the book contains"
+                        autocomplete="off"
+                    />
+                </label>
+                <div>
+                    <label for="status-y">
+                        <input
+                            type="radio"
+                            value="Read"
+                            name="reading-status"
+                            id="status-y"
+                        />Read
+                    </label>
+
+                    <label for="status-n">
+                        <input
+                            type="radio"
+                            value="Read"
+                            name="reading-status"
+                            id="status-n"
+                        />Unread
+                    </label>
+                </div>
+            </div>
+            <button type="button"><img src="svg-icons/close.svg" /></button>
+        </form>
     </body>
 </html>

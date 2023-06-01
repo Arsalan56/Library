@@ -255,7 +255,7 @@ form {
     margin: auto;
     height: calc(250px + 2vh);
     width: 500px;
-    /* visibility: hidden; */
+    visibility: hidden;
     padding: 4px;
     box-sizing: border-box;
     display: grid;
@@ -326,12 +326,8 @@ form > button:active {
     transform: scale(0.9);
 }
 
-input:invalid {
-    border-color: red;
-}
-
 .submit {
-    height: 30px;
+    height: 35px;
     width: 100px;
     background: none;
     border: 3px solid #0096c7;

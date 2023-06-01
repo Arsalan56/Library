@@ -53,7 +53,7 @@
                         id="name"
                         title="Please enter the book name"
                         autocomplete="off"
-                        minlength="1"
+                        required
                     />
                 </label>
                 <label for="author">
@@ -63,7 +63,7 @@
                         id="author"
                         autocomplete="off"
                         title="Please enter the name of the author"
-                        minlength="1"
+                        required
                     />
                 </label>
                 <label for="pgs">
@@ -74,6 +74,7 @@
                         min="1"
                         title="Please enter the amount of pages the book contains"
                         autocomplete="off"
+                        required
                     />
                 </label>
                 <div>
@@ -83,19 +84,23 @@
                             value="Read"
                             name="reading-status"
                             id="status-y"
+                            title="You have finished the book"
+                            required
                         />Read
                     </label>
 
                     <label for="status-n">
                         <input
                             type="radio"
-                            value="Read"
+                            value="Unread"
                             name="reading-status"
+                            title="You have not finished the book"
                             id="status-n"
+                            required
                         />Unread
                     </label>
                 </div>
-                <button type="button" class="submit">Add Book</button>
+                <button class="submit">Add Book</button>
             </div>
             <button type="button"><img src="svg-icons/close.svg" /></button>
         </form>

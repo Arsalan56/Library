@@ -38,14 +38,29 @@ const closeForm = document.querySelector('form > button');
 closeForm.addEventListener('click', () => {
     form.style.visibility = 'hidden';
 });
-// const myLibrary = [];
 
-// function Book(name, author, pages, status) {
-//     this.name = name;
-//     this.author = author;
-//     this.pages = pages;
-//     this.status = status;
-// }
+const submitForm = document.querySelector('form > div > button');
+const inputs = document.querySelectorAll('form input');
 
-// Book.prototype.addBook = () => {};
-// function displayBooks() {}
+const myLibrary = [];
+
+function Book(name, author, pages, status) {
+    this.name = name;
+    this.author = author;
+    this.pages = pages;
+    this.status = status;
+}
+
+function addBook() {}
+function displayBooks() {}
+
+submitForm.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (form.checkValidity()) {
+        form.style.visibility = 'hidden';
+        inputs.forEach((input) => {
+            // eslint-disable-next-line no-param-reassign
+            input.value = '';
+        });
+    }
+});

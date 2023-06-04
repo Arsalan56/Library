@@ -32,15 +32,30 @@ body.addEventListener('click', () => {
     form.style.visibility = 'hidden';
 });
 
+const radioY = document.querySelector('#status-y');
+const radioN = document.querySelector('#status-n');
+const inputs = document.querySelectorAll(
+    'form input[type=text], form input[type=number]'
+);
+
+const ClearForm = () => {
+    inputs.forEach((input) => {
+        // eslint-disable-next-line no-param-reassign
+        input.value = '';
+        radioY.checked = false;
+        radioN.checked = false;
+    });
+};
 form.addEventListener('click', (e) => e.stopPropagation());
 
+// Hide and clear form when x is clicked
 const closeForm = document.querySelector('form > button');
 closeForm.addEventListener('click', () => {
     form.style.visibility = 'hidden';
+    ClearForm();
 });
 
 const submitForm = document.querySelector('form > div > button');
-const inputs = document.querySelectorAll('form input');
 
 const myLibrary = [];
 
@@ -51,16 +66,24 @@ function Book(name, author, pages, status) {
     this.status = status;
 }
 
-function addBook() {}
+function addBook(name, author, pages, status) {
+    myLibrary.push(new Book(name, author, pages, status));
+}
 function displayBooks() {}
 
+// Retrieve data from form, then hide and clear form inputs
 submitForm.addEventListener('click', (e) => {
-    e.preventDefault();
     if (form.checkValidity()) {
+        e.preventDefault();
         form.style.visibility = 'hidden';
-        inputs.forEach((input) => {
-            // eslint-disable-next-line no-param-reassign
-            input.value = '';
-        });
+        // eslint-disable-next-line prefer-const
+        let selectedRad = document.querySelector('input[type=radio]:checked');
+        addBook(
+            inputs[0].value,
+            inputs[1].value,
+            inputs[2].value,
+            selectedRad.value
+        );
+        ClearForm();
     }
 });

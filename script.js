@@ -23,21 +23,6 @@ const form = document.querySelector('form');
 const openForm = document.querySelector('.btn > button');
 const body = document.querySelector('body');
 
-openForm.addEventListener('click', (e) => {
-    e.stopPropagation();
-    form.style.visibility = 'visible';
-});
-
-body.addEventListener('click', () => {
-    form.style.visibility = 'hidden';
-});
-
-const radioY = document.querySelector('#status-y');
-const radioN = document.querySelector('#status-n');
-const inputs = document.querySelectorAll(
-    'form input[type=text], form input[type=number]'
-);
-
 const ClearForm = () => {
     inputs.forEach((input) => {
         // eslint-disable-next-line no-param-reassign
@@ -46,6 +31,23 @@ const ClearForm = () => {
         radioN.checked = false;
     });
 };
+
+openForm.addEventListener('click', (e) => {
+    e.stopPropagation();
+    form.style.visibility = 'visible';
+});
+
+body.addEventListener('click', () => {
+    form.style.visibility = 'hidden';
+    ClearForm();
+});
+
+const radioY = document.querySelector('#status-y');
+const radioN = document.querySelector('#status-n');
+const inputs = document.querySelectorAll(
+    'form input[type=text], form input[type=number]'
+);
+
 form.addEventListener('click', (e) => e.stopPropagation());
 
 // Hide and clear form when x is clicked

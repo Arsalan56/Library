@@ -23,6 +23,11 @@ const form = document.querySelector('form');
 const openForm = document.querySelector('.btn > button');
 const body = document.querySelector('body');
 
+const radioY = document.querySelector('#status-y');
+const radioN = document.querySelector('#status-n');
+const inputs = document.querySelectorAll(
+    'form input[type=text], form input[type=number]'
+);
 const ClearForm = () => {
     inputs.forEach((input) => {
         // eslint-disable-next-line no-param-reassign
@@ -41,12 +46,6 @@ body.addEventListener('click', () => {
     form.style.visibility = 'hidden';
     ClearForm();
 });
-
-const radioY = document.querySelector('#status-y');
-const radioN = document.querySelector('#status-n');
-const inputs = document.querySelectorAll(
-    'form input[type=text], form input[type=number]'
-);
 
 form.addEventListener('click', (e) => e.stopPropagation());
 
@@ -71,7 +70,6 @@ function Book(name, author, pages, status) {
 function addBook(name, author, pages, status) {
     myLibrary.push(new Book(name, author, pages, status));
 }
-function displayBooks() {}
 
 // Retrieve data from form, then hide and clear form inputs
 submitForm.addEventListener('click', (e) => {
@@ -89,3 +87,15 @@ submitForm.addEventListener('click', (e) => {
         ClearForm();
     }
 });
+
+function displayBooks() {
+    const card = document.querySelector('.template');
+    card.remove();
+    console.log(card);
+
+    // myLibrary.forEach((book) => {
+    //     book[1];
+    // });
+}
+
+displayBooks();

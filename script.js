@@ -1,3 +1,5 @@
+/* eslint-disable prefer-const */
+/* eslint-disable no-plusplus */
 const form = document.querySelector('form');
 const openForm = document.querySelector('.btn > button');
 const body = document.querySelector('body');
@@ -52,29 +54,20 @@ function addBook(name, author, pages, status) {
 
 templateCard.remove();
 function displayBooks() {
-    let index = 0;
     // Remove all displayed cards first
     const childs = document.querySelectorAll('main > div');
     childs.forEach((child) => main.removeChild(child));
 
     // Loop through list and display each book's info
     myLibrary.forEach((book) => {
-        // eslint-disable-next-line prefer-const
         let card = templateCard.cloneNode(true);
         card.removeAttribute('class');
-        // eslint-disable-next-line no-plusplus
-        card.setAttribute('data', index++);
-        console.log(card);
         main.appendChild(card);
-        // eslint-disable-next-line prefer-const
         let name = document.querySelector('main > div:last-of-type .b-name');
-        // eslint-disable-next-line prefer-const
         let author = document.querySelector(
             'main > div:last-of-type .b-author'
         );
-        // eslint-disable-next-line prefer-const
         let pages = document.querySelector('main > div:last-of-type .b-pgs');
-        // eslint-disable-next-line prefer-const
         let status = document.querySelector(
             'main > div:last-of-type .status > img'
         );
@@ -86,14 +79,32 @@ function displayBooks() {
         book.status === 'Read'
             ? status.setAttribute('src', 'svg-icons/check.svg')
             : status.setAttribute('src', 'svg-icons/uncheck.svg');
+        function indexData() {
+            card.setAttribute(
+                'data',
+                myLibrary.findIndex(
+                    (arrBook) =>
+                        arrBook.name === name.textContent &&
+                        arrBook.author === author.textContent &&
+                        arrBook.pages === pages.textContent
+                )
+            );
+        }
+        indexData();
     });
+
     // Make trash button work
-    const Alltrash = document.querySelectorAll('.trash');
-    Alltrash.forEach((trash) =>
+    let allTrash = document.querySelectorAll('.trash');
+    allTrash.forEach((trash) => {
         trash.addEventListener('click', () => {
             trash.parentNode.remove();
-        })
-    );
+            let cards = document.querySelectorAll('main > div');
+            let index = 0;
+            cards.forEach((crd) => {
+                crd.setAttribute('data', index++);
+            });
+        });
+    });
 
     // Toggle status button
     const statImgs = document.querySelectorAll('.status > img');
@@ -114,7 +125,6 @@ submitForm.addEventListener('click', (e) => {
     if (form.checkValidity()) {
         e.preventDefault();
         form.style.visibility = 'hidden';
-        // eslint-disable-next-line prefer-const
         let selectedRad = document.querySelector('input[type=radio]:checked');
         addBook(
             inputs[0].value,

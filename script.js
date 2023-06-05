@@ -93,10 +93,11 @@ function displayBooks() {
         indexData();
     });
 
-    // Make trash button work
+    // Make trash buttons work properly
     let allTrash = document.querySelectorAll('.trash');
     allTrash.forEach((trash) => {
         trash.addEventListener('click', () => {
+            myLibrary.splice(trash.parentNode.getAttribute('data'), 1);
             trash.parentNode.remove();
             let cards = document.querySelectorAll('main > div');
             let index = 0;
@@ -110,11 +111,14 @@ function displayBooks() {
     const statImgs = document.querySelectorAll('.status > img');
     statImgs.forEach((statImg) =>
         statImg.addEventListener('click', () => {
+            let statIndex = statImg.parentNode.parentNode.getAttribute('data');
             const currentImg = statImg.getAttribute('src');
             if (currentImg === 'svg-icons/uncheck.svg') {
                 statImg.setAttribute('src', 'svg-icons/check.svg');
+                myLibrary[statIndex].status = 'Read';
             } else {
                 statImg.setAttribute('src', 'svg-icons/uncheck.svg');
+                myLibrary[statIndex].status = 'Unread';
             }
         })
     );

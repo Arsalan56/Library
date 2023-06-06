@@ -340,3 +340,13 @@ form > button:active {
     transition: 0.2s;
     transform: scale(0.95);
 }
+
+/* Form and card animations */
+
+form {
+    transform: scale(0.001);
+}
+form.active {
+    transition: 0.15s ease-in-out;
+    transform: scale(1);
+}

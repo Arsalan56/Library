@@ -25,10 +25,12 @@ const ClearForm = () => {
 openForm.addEventListener('click', (e) => {
     e.stopPropagation();
     form.style.visibility = 'visible';
+    form.classList.add('active');
 });
 
 body.addEventListener('click', () => {
     form.style.visibility = 'hidden';
+    form.classList.remove('active');
     ClearForm();
 });
 
@@ -38,6 +40,7 @@ form.addEventListener('click', (e) => e.stopPropagation());
 const closeForm = document.querySelector('form > button');
 closeForm.addEventListener('click', () => {
     form.style.visibility = 'hidden';
+    form.classList.remove('active');
     ClearForm();
 });
 
@@ -98,6 +101,7 @@ function displayBooks() {
     allTrash.forEach((trash) => {
         trash.addEventListener('click', () => {
             myLibrary.splice(trash.parentNode.getAttribute('data'), 1);
+            trash.parentNode.classList.add('closing');
             trash.parentNode.remove();
             let cards = document.querySelectorAll('main > div');
             let index = 0;
@@ -129,6 +133,7 @@ submitForm.addEventListener('click', (e) => {
     if (form.checkValidity()) {
         e.preventDefault();
         form.style.visibility = 'hidden';
+        form.classList.remove('active');
         let selectedRad = document.querySelector('input[type=radio]:checked');
         addBook(
             inputs[0].value,

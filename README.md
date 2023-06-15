@@ -2,7 +2,7 @@
 
 This project is a library where the user is able to manage their stored books.
 
-This Project was made as a part of [The Odin Project](https://www.theodinproject.com/)'s cirriculum.
+This Project was made as a part of [The Odin Project](https://www.theodinproject.com/)'s curriculum.
 
 ## Functionalities & Instructions
 
@@ -23,8 +23,8 @@ This Project was made as a part of [The Odin Project](https://www.theodinproject
 -   Form usage
 -   Event capturing
 
-### Languages Used
+### Languages used
 
 -   HTML5
 -   CSS3
--   ES6 JavaScript
+-   ES6 Javascript

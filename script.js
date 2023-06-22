@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable prefer-const */
 /* eslint-disable no-plusplus */
 const form = document.querySelector('form');
@@ -44,11 +45,33 @@ closeForm.addEventListener('click', () => {
     ClearForm();
 });
 
-function Book(name, author, pages, status) {
-    this.name = name;
-    this.author = author;
-    this.pages = pages;
-    this.status = status;
+class Book {
+    constructor(name, author, pages, status) {
+        this._name = name;
+        this._author = author;
+        this._pages = pages;
+        this._status = status;
+    }
+
+    get name() {
+        return this._name;
+    }
+
+    get author() {
+        return this._author;
+    }
+
+    get pages() {
+        return this._pages;
+    }
+
+    get status() {
+        return this._status;
+    }
+
+    set status(value) {
+        this._status = value;
+    }
 }
 
 function addBook(name, author, pages, status) {
